@@ -23,6 +23,18 @@ namespace CAD
         public MainWindow()
         {
             InitializeComponent();
+            
+            // Enable window dragging
+            this.MouseLeftButtonDown += MainWindow_MouseLeftButtonDown;
+        }
+        
+        private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Allow dragging the window by clicking anywhere on it
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
 
         private void OpenPopupButton_Click(object sender, RoutedEventArgs e)

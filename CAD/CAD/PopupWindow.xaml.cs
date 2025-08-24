@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Win32;
 
@@ -18,6 +19,18 @@ namespace CAD
         {
             InitializeComponent();
             InitializeAutoCADConnection();
+            
+            // Enable window dragging
+            this.MouseLeftButtonDown += PopupWindow_MouseLeftButtonDown;
+        }
+        
+        private void PopupWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Allow dragging the window by clicking anywhere on it
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
 
         private void InitializeAutoCADConnection()
