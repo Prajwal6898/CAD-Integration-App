@@ -318,3 +318,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Exclude old plugin folder
+old_dll_based_plugin/
