@@ -1,0 +1,100 @@
+<Window x:Class="CAD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CAD"
+        mc:Ignorable="d"
+        Title="CAD Welcome" Height="750" Width="320" 
+        Left="1380" Top="80" 
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        Background="Transparent" 
+        Topmost="True" 
+        ResizeMode="NoResize">
+    <Grid>
+        <!-- Main Background Card -->
+        <Border Background="White" 
+                CornerRadius="6" 
+                Margin="5">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" 
+                                  Direction="270" 
+                                  ShadowDepth="2" 
+                                  BlurRadius="8" 
+                                  Opacity="0.2"/>
+            </Border.Effect>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Header -->
+                <Border Grid.Row="0" Background="#007ACC" CornerRadius="6,6,0,0" Padding="15">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="CAD Integration" 
+                                  FontSize="16" 
+                                  FontWeight="Bold" 
+                                  Foreground="White" 
+                                  HorizontalAlignment="Center"/>
+                        <TextBlock Text="Welcome" 
+                                  FontSize="11" 
+                                  Foreground="#BDC3C7" 
+                                  HorizontalAlignment="Center" 
+                                  Margin="0,2,0,0"/>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Main Content -->
+                <StackPanel Grid.Row="1" Margin="15" VerticalAlignment="Center">
+                    <TextBlock Text="Ready to launch CAD Interface" 
+                              FontSize="14" 
+                              FontWeight="SemiBold" 
+                              HorizontalAlignment="Center" 
+                              Margin="0,0,0,20" 
+                              Foreground="#2C3E50"/>
+                    
+                    <Button Name="OpenPopupButton" 
+                           Content="Launch CAD Interface" 
+                           Height="40" 
+                           FontSize="12" 
+                           Background="#007ACC" 
+                           Foreground="White" 
+                           BorderThickness="0" 
+                           Cursor="Hand" 
+                           Margin="5" 
+                           Click="OpenPopupButton_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                                                   CornerRadius="6"
+                                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                                   BorderBrush="{TemplateBinding BorderBrush}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#005A9E"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter Property="Background" Value="#004578"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        
+        </Border>
+    </Grid>
+</Window>
